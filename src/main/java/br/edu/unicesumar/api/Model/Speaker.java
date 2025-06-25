@@ -15,15 +15,15 @@ public class Speaker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, length = 50)
     private String name;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, columnDefinition = "TEXT")
     private String miniResume;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, length = 50)
     private String Institution;
 

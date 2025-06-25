@@ -2,6 +2,7 @@ package br.edu.unicesumar.api.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +15,15 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, length = 50)
     private String name;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, length = 50)
     private String registration;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, length = 50)
     private String course;
 

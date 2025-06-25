@@ -3,6 +3,7 @@ package br.edu.unicesumar.api.Model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,19 +20,19 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, length = 50)
     private String name;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false)
     private LocalDateTime date;
 
-    @NotBlank
+    @NotNull
     @Min(1)
     @Column(nullable = false)
     private Integer limitParticpants;

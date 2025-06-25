@@ -17,6 +17,11 @@ public class SpeakerController {
         this.speakerService = speakerService;
     }
 
+    @PostMapping
+    public ResponseEntity<Speaker> create(@RequestBody @Valid Speaker speaker) {
+        return ResponseEntity.status(201).body(speakerService.create(speaker));
+    }
+
     @GetMapping
     public ResponseEntity<List<Speaker>> getAll() {
         List<Speaker> listSpeaker = speakerService.findAll();
