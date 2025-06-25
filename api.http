@@ -1,3 +1,220 @@
 GET http://localhost:8080
 Accept: application/json
 
+###
+
+### DEPARTAMENTOS
+
+### Buscar todos os departamentos
+GET http://localhost:8080/departments
+Accept: application/json
+
+###
+
+### Criar novo departamento
+POST http://localhost:8080/departments
+Content-Type: application/json
+
+{
+  "name": "Computer Science",
+  "sigla": "CCO",
+  "responsible": "Dr. John Doe"
+}
+
+###
+
+### Buscar departamento por ID
+GET http://localhost:8080/departments/1
+Accept: application/json
+
+###
+
+### Relatório do departamento
+GET http://localhost:8080/departments/1/report
+Accept: application/json
+
+###
+
+### Atualizar departamento
+PUT http://localhost:8080/departments/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Computer Science Updated",
+  "sigla": "CCO",
+  "responsible": "Dr. Jane Smith"
+}
+
+###
+
+### Deletar departamento
+DELETE http://localhost:8080/departments/1
+
+###
+
+### PALESTRANTES
+
+### Buscar todos os palestrantes
+GET http://localhost:8080/speakers
+Accept: application/json
+
+###
+
+### Criar novo palestrante
+POST http://localhost:8080/speakers
+Content-Type: application/json
+
+{
+  "name": "Henrique Pacheco",
+  "miniResume": "Especialista em Engenharia de Software e palestrante em eventos acadêmicos.",
+  "institution": "Universidade Estadual de Maringá"
+}
+
+###
+
+### Buscar palestrante por ID
+GET http://localhost:8080/speakers/1
+Accept: application/json
+
+###
+
+### Atualizar palestrante
+PUT http://localhost:8080/speakers/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Henrique Pacheco Atualizado",
+  "miniResume": "Atualização do mini currículo",
+  "institution": "UEM"
+}
+
+###
+
+### Deletar palestrante
+DELETE http://localhost:8080/speakers/1
+
+###
+
+### ESTUDANTES
+
+### Buscar todos os estudantes
+GET http://localhost:8080/students
+Accept: application/json
+
+###
+
+### Criar novo estudante
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "Hugo Zuin",
+  "email": "hugozuin@example.com",
+  "registration": "RA123456",
+  "course": "Engenharia de Software",
+  "department": {
+    "id": 1
+  }
+}
+
+###
+
+### Buscar estudante por ID
+GET http://localhost:8080/students/1
+Accept: application/json
+
+###
+
+### Atualizar estudante
+PUT http://localhost:8080/students/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Hugo Zuin Atualizado",
+  "email": "hugozuin@atualizado.com",
+  "registration": "RA123456",
+  "course": "Engenharia de Software",
+  "department": {
+    "id": 1
+  }
+}
+
+###
+
+### Deletar estudante
+DELETE http://localhost:8080/students/1
+
+###
+
+### EVENTOS
+
+### Buscar todos os eventos
+GET http://localhost:8080/events
+Accept: application/json
+
+###
+
+### Buscar evento por ID
+GET http://localhost:8080/events/1
+Accept: application/json
+
+###
+
+### Criar um novo evento
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "name": "Semana Acadêmica de Engenharia",
+  "description": "Evento com palestras e oficinas técnicas.",
+  "date": "2025-06-25T19:00:00",
+  "limitParticpants": 100,
+  "department": {
+    "id": 1
+  },
+  "speaker": [
+    { "id": 2 },
+    { "id": 4 }
+  ]
+}
+
+###
+
+### Atualizar evento
+PUT http://localhost:8080/events/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Semana Acadêmica Atualizada",
+  "description": "Evento atualizado com novos palestrantes.",
+  "date": "2025-06-26T19:00:00",
+  "limitParticpants": 150,
+  "department": {
+    "id": 1
+  },
+  "speaker": [
+    { "id": 2 }
+  ]
+}
+
+###
+
+### Inscrever estudante em evento
+POST http://localhost:8080/events/1/registrations
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### Inscrever estudante em evento
+GET http://localhost:8080/students/1/registrations
+Content-Type: application/json
+
+DELETE http://localhost:808/registrations/1
+
+###
